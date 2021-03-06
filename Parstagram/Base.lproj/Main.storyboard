@@ -82,12 +82,77 @@
         <!--Feed View Controller-->
         <scene sceneID="nhI-ya-eoJ">
             <objects>
-                <viewController id="tgw-nf-Hyf" customClass="FeedViewController" customModule="Parstagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="tgw-nf-Hyf" customClass="FeedViewController" customModule="Parstagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QTu-xk-q61">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yqq-Tf-PiW">
+                                <rect key="frame" x="0.0" y="23" width="390" height="767"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="445" id="pE5-jJ-MGc" customClass="PostCell" customModule="Parstagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="390" height="445"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pE5-jJ-MGc" id="fHT-8B-Ejz">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="445"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZlZ-Wr-MUf">
+                                                    <rect key="frame" x="8" y="8" width="374" height="345"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="52d-Rc-Yhv"/>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="330" id="55f-NK-UJJ"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="AcA-2h-dAG"/>
+                                                        <constraint firstAttribute="height" constant="345" id="QE0-AA-DWT"/>
+                                                        <constraint firstAttribute="width" constant="345" id="TDi-TN-Fa1"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I &lt;3 Photos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vue-YR-Dce">
+                                                    <rect key="frame" x="283.66666666666669" y="361" width="76.333333333333314" height="18.666666666666686"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Ali" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfx-Ba-hhG">
+                                                    <rect key="frame" x="8" y="361" width="267.66666666666669" height="18.666666666666686"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Vue-YR-Dce" secondAttribute="trailing" constant="10" id="0Ap-Sq-76r"/>
+                                                <constraint firstItem="Vue-YR-Dce" firstAttribute="leading" secondItem="Lfx-Ba-hhG" secondAttribute="trailing" constant="7.9999999999999929" id="1rj-rd-CGB"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZlZ-Wr-MUf" secondAttribute="trailing" constant="8" id="30A-cW-AI6"/>
+                                                <constraint firstItem="ZlZ-Wr-MUf" firstAttribute="leading" secondItem="fHT-8B-Ejz" secondAttribute="leading" constant="8" id="JeL-OT-YXK"/>
+                                                <constraint firstItem="Lfx-Ba-hhG" firstAttribute="top" secondItem="ZlZ-Wr-MUf" secondAttribute="bottom" constant="8" id="QV2-RC-EgF"/>
+                                                <constraint firstItem="Lfx-Ba-hhG" firstAttribute="leading" secondItem="fHT-8B-Ejz" secondAttribute="leading" constant="8" id="fwS-VL-S5t"/>
+                                                <constraint firstItem="Vue-YR-Dce" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fHT-8B-Ejz" secondAttribute="leading" constant="20" symbolic="YES" id="jcc-Ol-9bt"/>
+                                                <constraint firstItem="ZlZ-Wr-MUf" firstAttribute="top" secondItem="fHT-8B-Ejz" secondAttribute="top" constant="8" id="t4S-Hy-FaY"/>
+                                                <constraint firstItem="Vue-YR-Dce" firstAttribute="baseline" secondItem="Lfx-Ba-hhG" secondAttribute="baseline" id="tiv-jh-K8X"/>
+                                                <constraint firstItem="Lfx-Ba-hhG" firstAttribute="leading" secondItem="fHT-8B-Ejz" secondAttribute="leading" constant="8" id="vrO-Dy-beF"/>
+                                                <constraint firstItem="Lfx-Ba-hhG" firstAttribute="top" secondItem="ZlZ-Wr-MUf" secondAttribute="bottom" constant="8" id="xlS-Ed-9xw"/>
+                                                <constraint firstItem="Lfx-Ba-hhG" firstAttribute="top" secondItem="ZlZ-Wr-MUf" secondAttribute="bottom" constant="8" id="zYh-Hc-tbS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="captionLabel" destination="Vue-YR-Dce" id="o6C-fC-shh"/>
+                                            <outlet property="photoView" destination="ZlZ-Wr-MUf" id="QL5-vM-bCD"/>
+                                            <outlet property="usernameLabel" destination="Lfx-Ba-hhG" id="Vay-0h-Fpx"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="GcK-j4-pke"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yqq-Tf-PiW" firstAttribute="top" secondItem="QTu-xk-q61" secondAttribute="topMargin" constant="-65" id="2NZ-Wg-w8n"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="yqq-Tf-PiW" secondAttribute="bottom" constant="-29" id="LET-VK-wVo"/>
+                            <constraint firstItem="yqq-Tf-PiW" firstAttribute="leading" secondItem="QTu-xk-q61" secondAttribute="leading" id="VM0-0R-sFC"/>
+                            <constraint firstAttribute="trailing" secondItem="yqq-Tf-PiW" secondAttribute="trailing" id="hVG-2a-zRu"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FiL-9I-wup">
@@ -98,17 +163,20 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="yqq-Tf-PiW" id="AnF-1O-dAl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iVg-gR-gqL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1650.7246376811595" y="69.642857142857139"/>
+            <point key="canvasLocation" x="1649.2307692307693" y="68.957345971563981"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="Biu-iw-Eyo">
             <objects>
-                <viewController id="T2d-Z6-Ter" customClass="CameraViewController" customModule="Parstagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="T2d-Z6-Ter" customClass="CameraViewController" customModule="Parstagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BDh-fh-1Ql">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera.viewfinder" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IIw-pa-ZVV">
@@ -154,10 +222,10 @@
         <!--Navigation Controller-->
         <scene sceneID="tAl-rU-0sf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UDt-TS-TZn" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="UDt-TS-TZn" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fbs-2z-XKO">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
