@@ -7,10 +7,12 @@
 
 import UIKit
 import Parse
+//import Window
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+    //––––– Lab 6 TODO: Staying Logged-in; var window:UIWindow?
+    var window: UIWindow?
     // ––––– Lab 5 TODO: Initialize Parse
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -22,6 +24,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 $0.server = "https://parseapi.back4app.com"
         }
         Parse.initialize(with: parseConfig)
+        
+        // ––––– Lab 6 TODO: Staying Logged in
+        if PFUser.current() != nil  //If user already logged in,
+        {
+            let main = UIStoryboard(name: "Main",
+                                    bundle: nil)
+            let feedNavigationController = main.instantiateViewController(withIdentifier: "FeedNavigationController")
+            
+            window?.rootViewController = feedNavigationController
+        }
+        
         
         // --- end copy
         return true
