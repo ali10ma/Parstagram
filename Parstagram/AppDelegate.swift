@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // --- Copy this only
         
         let parseConfig = ParseClientConfiguration {
-                $0.applicationId = "7Rf7eg8meDV1w60qqwWu34ktcCFNtCeubOd7LJkl" // <- UPDATE
-                $0.clientKey = "KWo3mEMtXd1leB5nD8tqB5luMATTlF3pz1dhpguq" // <- UPDATE
+                $0.applicationId = "1UwGmlP44lzk92JRCq4AGnyBbawCs03oOcwj37De" // <- UPDATE
+                $0.clientKey = "N93wTUojjVkeehd3tBclAWyB6ZJqGAlzWE7houYk" // <- UPDATE
                 $0.server = "https://parseapi.back4app.com"
         }
         Parse.initialize(with: parseConfig)

@@ -19,10 +19,17 @@
                                 <rect key="frame" x="44" y="174" width="326" height="223"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hourglass.end" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BXf-Ic-Bhr">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon-60" translatesAutoresizingMaskIntoConstraints="NO" id="BXf-Ic-Bhr">
                                 <rect key="frame" x="167" y="360" width="80" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From Ali" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n83-b1-xE2">
+                                <rect key="frame" x="127" y="718" width="161" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="0.87922961369999997" blue="0.92005710559999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -34,7 +41,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="hourglass.end" catalog="system" width="109" height="128"/>
+        <image name="Icon-60" width="60" height="60"/>
         <image name="instagram_logo" width="255" height="108"/>
     </resources>
 </document>
