@@ -9,10 +9,9 @@ import UIKit
 import Parse
 //import Window
 
-@main
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    //––––– Lab 6 TODO: Staying Logged-in; var window:UIWindow?
-    var window: UIWindow?
+
     // ––––– Lab 5 TODO: Initialize Parse
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -25,24 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         Parse.initialize(with: parseConfig)
         
-        // ––––– Lab 6 TODO: Staying Logged in
-        if PFUser.current() != nil  //If user already logged in,
-        {
-            let main = UIStoryboard(name: "Main",
-                                    bundle: nil)
-            let feedNavigationController = main.instantiateViewController(withIdentifier: "FeedNavigationController")
-            
-            window?.rootViewController = feedNavigationController
-        }
-        
-        
         // --- end copy
         return true
       }
     
-
-
-
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
