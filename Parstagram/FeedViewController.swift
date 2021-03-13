@@ -23,6 +23,7 @@ class FeedViewController:
     var showsCommentBar = false
     //---
     var posts = [PFObject]()
+    var selectedPost: PFObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +72,7 @@ class FeedViewController:
             if posts != nil{
                 self.posts = posts!
                 self.tableView.reloadData()
+                print(posts![1])
             }
             else{
                 print("ERROR: ", error?.localizedDescription)
@@ -80,6 +82,25 @@ class FeedViewController:
     
     func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
         //Create the comment
+        
+        let comment = PFObject(className: "Comments")
+        comment["text"] = text
+        comment["post"] = selectedPost
+        comment["author"] = PFUser.current()!
+
+        selectedPost.add(comment, forKey: "comments")
+
+        selectedPost.saveInBackground(){
+            (success, error) in
+            if success{
+                print("Comment saved")
+            }else{
+                print("Error saving comment")
+            }
+        }
+        
+        tableView.reloadData()
+        
         
         //Clear and Dismiss the input bar
         commentBar.inputTextView.text = nil
@@ -91,7 +112,7 @@ class FeedViewController:
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let post = posts[section]
-        let comments = (post["Comments"] as? [PFObject]) ?? []  //[] to express default value
+        let comments = (post["comments"] as? [PFObject]) ?? []  //[] to express default value
         return comments.count + 2
         //Solved
         // return self.posts.count
@@ -103,7 +124,7 @@ class FeedViewController:
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.section]
-        let comments = (post["Comments"] as? [PFObject]) ?? []
+        let comments = (post["comments"] as? [PFObject]) ?? []
         
         // ---- Lab 6: Displaying Comments
         if indexPath.row == 0 {
@@ -126,7 +147,7 @@ class FeedViewController:
             
             let comment = comments[indexPath.row - 1] //bring me the first comment
             
-            cell.nameLabel.text = comment["text"] as! String
+            cell.commentLabel.text = comment["text"] as! String
             
             let user = comment["author"] as!PFUser
             cell.nameLabel.text = user.username
@@ -143,7 +164,7 @@ class FeedViewController:
     // ––––– Lab 6 TODO: Creating Fake Comments; Added a Comment column in Parse Dash-Board
     //Every time when user tap on an image, I get called back here:
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        let post = posts[indexPath.row]
+        let post = posts[indexPath.section]
         
         let comments = (post["comments"] as? [PFObject]) ?? []
 //        let comment = PFObject(className: "Comments")
@@ -151,7 +172,9 @@ class FeedViewController:
         if indexPath.row == comments.count + 1{
             showsCommentBar = true
             becomeFirstResponder()
-            commentBar.inputTextView.becomeFirstResponder()
+            commentBar.inputTextView.becomeFirstResponder()     //to raise comment bar
+            
+            selectedPost = post //remember the post
             
         }
         
@@ -170,6 +193,15 @@ class FeedViewController:
 //            }
 //        }
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0{
+            return 400
+        }
+        else{
+            return 30
+        }
     }
     
     
